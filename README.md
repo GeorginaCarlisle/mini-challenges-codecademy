@@ -12,6 +12,10 @@ This repository has been organised firstly by course, with each course containin
 
 JavaScript
 
+### Libraries and Frameworks
+
+[JEST](https://jestjs.io/) - A JavaScript Testing Framework
+
 ## Acknowledgements
 
 [Codecademy](https://www.codecademy.com/)

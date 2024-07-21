@@ -1,0 +1,14 @@
+{
+  "name": "mini-challenges-codecademy",
+  "version": "1.0.0",
+  "description": "Repository of codecademy challenges completed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Georgina Carlisle",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
