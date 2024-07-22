@@ -27,4 +27,23 @@ describe('Media parent class', () => {
     newMedia.toggleCheckOutStatus();
     expect(newMedia.isCheckedOut).toBe(true);
   });
+
+  test('Constructs ratings array initially empty', () => {
+    const newMedia = new Media("title");
+    expect(newMedia._ratings.length).toBe(0);
+  })
+
+  test('addRating method adds rating to ratings array', () => {
+    const newMedia = new Media("title");
+    newMedia.addRating(4);
+    newMedia.addRating(2);
+    expect(newMedia._ratings.length).toBe(2);
+  })
+
+  test('getAverageRating method returns the average rating', () => {
+    const newMedia = new Media("title");
+    newMedia.addRating(4);
+    newMedia.addRating(2);
+    expect(newMedia.getAverageRating()).toBe(3);
+  })
 });
