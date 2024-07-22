@@ -40,6 +40,13 @@ describe('Media parent class', () => {
     expect(newMedia._ratings.length).toBe(2);
   })
 
+  test('ratings getter returns ratings property', () => {
+    const newMedia = new Media("title");
+    newMedia.addRating(4);
+    newMedia.addRating(2);
+    expect(newMedia.ratings).toEqual([4, 2]);
+  })
+
   test('getAverageRating method returns the average rating', () => {
     const newMedia = new Media("title");
     newMedia.addRating(4);

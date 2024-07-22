@@ -13,6 +13,10 @@ class Media {
     return this._isCheckedOut;
   }
 
+  get ratings() {
+    return this._ratings;
+  }
+
   toggleCheckOutStatus() {
     this._isCheckedOut = !this._isCheckedOut;
   }
