@@ -1,5 +1,4 @@
-const Media = require("./build-a-library");
-const Book = require("./build-a-library");
+const { Media, Book } = require("./build-a-library");
 
 describe('Media parent class', () => {
 
@@ -80,5 +79,23 @@ describe('Book child class extending Media', () => {
     expect(newBook.getAverageRating()).toBe(3);
   })
 
+  test('Constructs author property passed as argument during new instance creation', () => {
+    const newBook = new Book("title", "author");
+    expect(newBook._author).toBe("author");
+  })
 
+  test('author getter returns author property', () => {
+    const newBook = new Book("title", "author");
+    expect(newBook.author).toBe("author");
+  });
+
+  test('Constructs pages property passed as argument during new instance creation', () => {
+    const newBook = new Book("title", "author", 85);
+    expect(newBook._pages).toBe(85);
+  })
+
+  test('pages getter returns pages property', () => {
+    const newBook = new Book("title", "author", 85);
+    expect(newBook.pages).toBe(85);
+  });
 });
