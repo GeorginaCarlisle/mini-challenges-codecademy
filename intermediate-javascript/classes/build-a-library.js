@@ -31,4 +31,11 @@ class Media {
   }
 }
 
-module.exports = Media;
+class Book extends Media {
+  constructor(title) {
+    super(title);
+  }
+
+}
+
+module.exports = Media, Book;

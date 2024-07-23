@@ -1,4 +1,5 @@
 const Media = require("./build-a-library");
+const Book = require("./build-a-library");
 
 describe('Media parent class', () => {
 
@@ -53,4 +54,31 @@ describe('Media parent class', () => {
     newMedia.addRating(2);
     expect(newMedia.getAverageRating()).toBe(3);
   })
+});
+
+describe('Book child class extending Media', () => {
+  test('title property from parent correcctly functioning', () => {
+    const newBook = new Book("title");
+    expect(newBook._title).toBe("title");
+    expect(newBook.title).toBe("title");
+  })
+
+  test('isCheckedOut property from parent correctly functioning', () => {
+    const newBook = new Book("title");
+    expect(newBook._isCheckedOut).toBe(false);
+    expect(newBook.isCheckedOut).toBe(false);
+    newBook.toggleCheckOutStatus();
+    expect(newBook.isCheckedOut).toBe(true);
+  });
+
+  test('ratings property from parent correctly functioning', () => {
+    const newBook = new Book("title");
+    expect(newBook._ratings.length).toBe(0);
+    newBook.addRating(4);
+    newBook.addRating(2);
+    expect(newBook.ratings).toEqual([4, 2]);
+    expect(newBook.getAverageRating()).toBe(3);
+  })
+
+
 });
