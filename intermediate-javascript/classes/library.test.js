@@ -1,4 +1,4 @@
-const { Media, Book } = require("./build-a-library");
+const { Media, Book, Movie } = require("./build-a-library");
 
 describe('Media parent class', () => {
 
@@ -98,4 +98,50 @@ describe('Book child class extending Media', () => {
     const newBook = new Book("title", "author", 85);
     expect(newBook.pages).toBe(85);
   });
+});
+
+describe('Movie child class extending Media', () => {
+  test('title property from parent correcctly functioning', () => {
+    const newMovie = new Movie("title");
+    expect(newMovie._title).toBe("title");
+    expect(newMovie.title).toBe("title");
+  })
+
+  test('isCheckedOut property from parent correctly functioning', () => {
+    const newMovie = new Movie("title");
+    expect(newMovie._isCheckedOut).toBe(false);
+    expect(newMovie.isCheckedOut).toBe(false);
+    newMovie.toggleCheckOutStatus();
+    expect(newMovie.isCheckedOut).toBe(true);
+  });
+
+  test('ratings property from parent correctly functioning', () => {
+    const newMovie = new Movie("title");
+    expect(newMovie._ratings.length).toBe(0);
+    newMovie.addRating(4);
+    newMovie.addRating(2);
+    expect(newMovie.ratings).toEqual([4, 2]);
+    expect(newMovie.getAverageRating()).toBe(3);
+  })
+
+  test('Constructs director property passed as argument during new instance creation', () => {
+    const newMovie = new Movie("title", "director");
+    expect(newMovie._director).toBe("director");
+  })
+
+  test('director getter returns director property', () => {
+    const newMovie = new Movie("title", "director");
+    expect(newMovie.director).toBe("director");
+  });
+
+  test('Constructs runTime property passed as argument during new instance creation', () => {
+    const newMovie = new Movie("title", "director", 449);
+    expect(newMovie._runTime).toBe(449);
+  })
+
+  test('runTime getter returns runTime property', () => {
+    const newMovie = new Movie("title", "director", 449);
+    expect(newMovie.runTime).toBe(449);
+  });
+
 });
