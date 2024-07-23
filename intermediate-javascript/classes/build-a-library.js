@@ -26,10 +26,7 @@ class Media {
   }
 
   getAverageRating() {
-    let ratingSum = 0;
-    for (let rating of this._ratings){
-      ratingSum += rating;
-    }
+    let ratingSum = this.ratings.reduce((currentSum, rating) => currentSum + rating, 0);
     return ratingSum / this._ratings.length;
   }
 }
