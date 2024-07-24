@@ -6,8 +6,6 @@ Details of all challenges completed as part of this course are included here. Al
 
 ### Build a library
 
-#### Instructions
-
 Build a Library
 Congratulations, you’ve become head librarian at your local Books-‘N-Stuff, which is in dire need of your help. They’re still using index cards to organize their content! Yikes.
 
@@ -25,8 +23,6 @@ Getters: all properties have a getter
 Methods: .getAverageRating(), .toggleCheckOutStatus(), and .addRating()
 
 ### School Catalogue
-
-#### Instructions
 
 Let’s put your knowledge of classes to the test by creating a digital school catalog for the New York City Department of Education. The Department of Education wants the catalog to hold quick reference material for each school in the city.
 
