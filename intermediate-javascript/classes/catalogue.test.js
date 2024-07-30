@@ -36,13 +36,22 @@ describe('School parent class', () => {
     const newSchool = new School('First School', 'primary', 300);
     const logSpy = jest.spyOn(console, 'log');
     newSchool.numberOfStudents = "Ten";
-    expect(logSpy).toHaveBeenCalledWith('Invalid input: numberOfStudents must be set to a Number.')
+    expect(logSpy).toHaveBeenCalledWith('Invalid input: numberOfStudents must be set to a Number.');
+    logSpy.mockRestore(); //Cleans up spy after test
   })
 
   test('numberOfStudents setter correctly updates property', () => {
     const newSchool = new School('First School', 'primary', 300);
     newSchool.numberOfStudents = 400;
     expect(newSchool.numberOfStudents).toBe(400);
+  })
+
+  test('quickFacts method prints facts', () => {
+    const newSchool = new School('First School', 'primary', 300);
+    const logSpy = jest.spyOn(console, 'log');
+    newSchool.quickFacts();
+    expect(logSpy).toHaveBeenCalledWith('First School educates 300 students at the primary school level.');
+    logSpy.mockRestore(); //Cleans up spy after test
   })
 
 })
