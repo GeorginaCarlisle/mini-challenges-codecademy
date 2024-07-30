@@ -36,4 +36,10 @@ class School {
   }
 }
 
-module.exports = { School };
+class PrimarySchool extends School {
+  constructor(name, numberOfStudents) {
+    super(name, "primary", numberOfStudents);
+  }
+}
+
+module.exports = { School, PrimarySchool };

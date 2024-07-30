@@ -1,4 +1,4 @@
-const { School } = require("./school-catalogue");
+const { School, PrimarySchool } = require("./school-catalogue");
 
 describe('School parent class', () => {
 
@@ -74,4 +74,56 @@ describe('School parent class', () => {
     })
   })
 
+})
+
+describe('PrimarySchool Class', () => {
+  describe('correctly extends the School parent class', () => {
+    test('Constructs name and numberOfStudents properties passed as argument during instance creation', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      expect(newPrimarySchool._name).toBe('First School');
+      expect(newPrimarySchool._numberOfStudents).toBe(200);
+    })
+
+    test('Value property automatically constructed with value of primary', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      expect(newPrimarySchool._level).toBe('primary');
+    })
+  
+    test('name getter returns name property', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      expect(newPrimarySchool.name).toBe('First School');
+    })
+  
+    test('level getter returns level property', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      expect(newPrimarySchool.level).toBe('primary');
+    })
+  
+    test('numberOfStudents getter returns number of students property', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      expect(newPrimarySchool.numberOfStudents).toBe(200);
+    })
+  
+    test('numberOfStudents setter checks input is a number', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      const logSpy = jest.spyOn(console, 'log');
+      newPrimarySchool.numberOfStudents = "Ten";
+      expect(logSpy).toHaveBeenCalledWith('Invalid input: numberOfStudents must be set to a Number.');
+      logSpy.mockRestore(); //Cleans up spy after test
+    })
+  
+    test('numberOfStudents setter correctly updates property', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      newPrimarySchool.numberOfStudents = 201;
+      expect(newPrimarySchool.numberOfStudents).toBe(201);
+    })
+  
+    test('quickFacts method prints facts', () => {
+      const newPrimarySchool = new PrimarySchool('First School', 200);
+      const logSpy = jest.spyOn(console, 'log');
+      newPrimarySchool.quickFacts();
+      expect(logSpy).toHaveBeenCalledWith('First School educates 200 students at the primary school level.');
+      logSpy.mockRestore(); //Cleans up spy after test
+    })
+  })
 })
