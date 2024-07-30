@@ -45,7 +45,12 @@ class PrimarySchool extends School {
   get pickupPolicy() {
     return this._pickupPolicy;
   }
-
 }
 
-module.exports = { School, PrimarySchool };
+class MiddleSchool extends School {
+  constructor(name, numberOfStudents) {
+    super(name, "middle", numberOfStudents);
+  }
+}
+
+module.exports = { School, PrimarySchool, MiddleSchool };

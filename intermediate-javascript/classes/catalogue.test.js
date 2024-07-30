@@ -1,4 +1,4 @@
-const { School, PrimarySchool } = require("./school-catalogue");
+const { School, PrimarySchool, MiddleSchool } = require("./school-catalogue");
 
 describe('School parent class', () => {
 
@@ -135,5 +135,57 @@ describe('PrimarySchool Class', () => {
   test('pickupProperty getter correctly returns value', () => {
     const newPrimarySchool = new PrimarySchool('First School', 200, 'Pick up policy');
     expect(newPrimarySchool.pickupPolicy).toBe('Pick up policy');
+  })
+})
+
+describe('MiddleSchool Class', () => {
+  describe('correctly extends the School parent class', () => {
+    test('Constructs name and numberOfStudents properties passed as argument during instance creation', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      expect(newMiddleSchool._name).toBe('Second School');
+      expect(newMiddleSchool._numberOfStudents).toBe(300);
+    })
+
+    test('Value property automatically constructed with value of middle', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      expect(newMiddleSchool._level).toBe('middle');
+    })
+  
+    test('name getter returns name property', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      expect(newMiddleSchool.name).toBe('Second School');
+    })
+  
+    test('level getter returns level property', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      expect(newMiddleSchool.level).toBe('middle');
+    })
+  
+    test('numberOfStudents getter returns number of students property', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      expect(newMiddleSchool.numberOfStudents).toBe(300);
+    })
+  
+    test('numberOfStudents setter checks input is a number', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      const logSpy = jest.spyOn(console, 'log');
+      newMiddleSchool.numberOfStudents = "Ten";
+      expect(logSpy).toHaveBeenCalledWith('Invalid input: numberOfStudents must be set to a Number.');
+      logSpy.mockRestore(); //Cleans up spy after test
+    })
+  
+    test('numberOfStudents setter correctly updates property', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      newMiddleSchool.numberOfStudents = 301;
+      expect(newMiddleSchool.numberOfStudents).toBe(301);
+    })
+  
+    test('quickFacts method prints facts', () => {
+      const newMiddleSchool = new MiddleSchool('Second School', 300);
+      const logSpy = jest.spyOn(console, 'log');
+      newMiddleSchool.quickFacts();
+      expect(logSpy).toHaveBeenCalledWith('Second School educates 300 students at the middle school level.');
+      logSpy.mockRestore(); //Cleans up spy after test
+    })
   })
 })
