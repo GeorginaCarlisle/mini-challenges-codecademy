@@ -28,6 +28,12 @@ class School {
   quickFacts() {
     console.log(`${this._name} educates ${this._numberOfStudents} students at the ${this._level} school level.`);
   }
+
+  static pickSubstituteTeacher(substituteTeachers) {
+    const randomNumber = Math.random() * substituteTeachers.length;
+    const index = Math.floor(randomNumber)
+    return substituteTeachers[index];
+  }
 }
 
 module.exports = { School };

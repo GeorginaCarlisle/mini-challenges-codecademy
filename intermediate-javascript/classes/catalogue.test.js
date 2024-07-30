@@ -54,4 +54,24 @@ describe('School parent class', () => {
     logSpy.mockRestore(); //Cleans up spy after test
   })
 
+  describe('pickSubstituteTeacher method returns a random teacher', () => {
+    test('returned teacher is from parameter array', () => {
+      const substituteTeachers = ['Jenny Smith', 'Henry Ball', 'Peter Johnson'];
+      const chosenTeacher = School.pickSubstituteTeacher(substituteTeachers);
+      expect(substituteTeachers).toContain(chosenTeacher);
+    })
+
+    test('parameter array of one returns only choice', () => {
+      const chosenTeacher = School.pickSubstituteTeacher(['Jenny Smith']);
+      expect(chosenTeacher).toBe('Jenny Smith');
+    })
+
+    test('chosenTeacher selected based on mocked random number', () => {
+      const substituteTeachers = ['Jenny Smith', 'Henry Ball', 'Peter Johnson'];
+      jest.spyOn(Math, 'random').mockReturnValue(0.9);
+      const chosenTeacher = School.pickSubstituteTeacher(substituteTeachers);
+      expect(chosenTeacher).toBe('Peter Johnson');
+    })
+  })
+
 })
