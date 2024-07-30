@@ -126,4 +126,14 @@ describe('PrimarySchool Class', () => {
       logSpy.mockRestore(); //Cleans up spy after test
     })
   })
+
+  test('Constructs pickupPolicy property passed in as argument', () => {
+    const newPrimarySchool = new PrimarySchool('First School', 200, 'Pick up policy');
+    expect(newPrimarySchool._pickupPolicy).toBe('Pick up policy');
+  })
+
+  test('pickupProperty getter correctly returns value', () => {
+    const newPrimarySchool = new PrimarySchool('First School', 200, 'Pick up policy');
+    expect(newPrimarySchool.pickupPolicy).toBe('Pick up policy');
+  })
 })
