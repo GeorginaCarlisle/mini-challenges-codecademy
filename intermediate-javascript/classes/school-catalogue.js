@@ -53,4 +53,16 @@ class MiddleSchool extends School {
   }
 }
 
-module.exports = { School, PrimarySchool, MiddleSchool };
+class HighSchool extends School {
+  constructor(name, numberOfStudents, sportsTeams) {
+    super(name, "high", numberOfStudents);
+    this._sportsTeams = sportsTeams;
+  }
+
+  get sportsTeams() {
+    return this._sportsTeams;
+  }
+  
+}
+
+module.exports = { School, PrimarySchool, MiddleSchool, HighSchool };
