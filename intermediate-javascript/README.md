@@ -41,3 +41,9 @@ Does not include any additional properties or methods
 High
 Includes everything in the School class, plus one additional property
 Properties: sportsTeams (array of strings)
+
+## Extra
+
+### Format Number
+
+Format Number function should have a number parameter and should return a string representation of that number value with a comma (,) character between every 3rd digit.
